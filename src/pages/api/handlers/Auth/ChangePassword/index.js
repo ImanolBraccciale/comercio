@@ -1,22 +1,21 @@
-import { postUser } from "../../controllers/User/postUser";
+import { changePassword } from "@/pages/api/controllers/User/changePassword";
 
 export default async function handleRequest(req,res) {
-    
     let data;
     let response;
     try {
         
         switch (req.method) {
             case "POST":
-            response = await postUser(req,res)
-            return res.json(response)
-            case "DELETE":
+               response = await changePassword(req,res)
+               return res.json(response)
+  
             default:
                 break;
         }
 
     } catch (error) {
-        return "eror en handler"
+        return "error en handler"
     }
 
 }

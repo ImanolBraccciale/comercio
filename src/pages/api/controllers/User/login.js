@@ -24,10 +24,7 @@ export const login = async (req, res) => {
         userFind.password
       )
       if (!isCorrect) {
-       
         return res.json({ message: mensagess.errors.incorrectPassword })
-  
-  
       }
   
       const { password: _unused, ...userWithoutPassword } = userFind;

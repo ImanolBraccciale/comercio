@@ -4,7 +4,8 @@ export const mensagess = {
         updateProduct:"Se modificado corectamente",
         postUser:"Usuario creado correctamente",
         login:"Usuario logeado correctamente",
-        resendSuccess:"Se ha enviado un correo a su Email"
+        resendSuccess:"Se ha enviado un correo a su Email",
+        chagePassword:"Contraseña cambiada correctamente"
     },
     errors:{
 
@@ -13,6 +14,8 @@ export const mensagess = {
         verifyEmail:"Email existente",
         incorrectPassword:"La contraseña es incorrecta",
         diffPasword:"Contraseña diferente a la de confirmacion",
-        onePassword:"Es necesario la contraseña y su confirm"
+        onePassword:"Es necesario la contraseña y su confirm",
+        notAutorished:"No autorizado",
+   
     }
 }

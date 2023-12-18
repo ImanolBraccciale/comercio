@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CLIENT
+  SELLER
+  ADMIN
+}
+
+model User {
+  id         String    @id @default(uuid())
+  name       String
+  email      String    @unique
+  password   String
+  role       Role      @default(CLIENT)
+  purchases  Purchase[]
+  sales      Sale[]
+}
+
+model Product {
+  id          String    @id @default(uuid())
+  name        String
+  description String
+  price       Float
+  stock       Int
+  purchases   PurchaseDetail[]
+  sales       Sale[]
+}
+
+model Purchase {
+  id          String    @id @default(uuid())
+  user        User      @relation(fields: [user_id], references: [id])
+  user_id     String
+  date        DateTime
+  details     PurchaseDetail[]
+}
+
+model PurchaseDetail {
+  id           String    @id @default(uuid())
+  purchase     Purchase  @relation(fields: [purchase_id], references: [id])
+  purchase_id  String
+  product      Product   @relation(fields: [product_id], references: [id])
+  product_id   String
+  quantity     Int
+  unit_price   Float
+}
+
+
+model Sale {
+  id             String    @id @default(uuid())
+  user           User      @relation(fields: [user_id], references: [id])
+  user_id        String
+  product        Product   @relation(fields: [product_id], references: [id])
+  product_id     String
+  quantity       Int
+  unit_price     Float
+  date           DateTime
+}

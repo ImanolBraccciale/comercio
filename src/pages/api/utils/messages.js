@@ -5,7 +5,8 @@ export const mensagess = {
         postUser:"Usuario creado correctamente",
         login:"Usuario logeado correctamente",
         resendSuccess:"Se ha enviado un correo a su Email",
-        chagePassword:"Contraseña cambiada correctamente"
+        chagePassword:"Contraseña cambiada correctamente",
+        purchase:"Compra realizada correctamente"
     },
     errors:{
 
@@ -16,6 +17,8 @@ export const mensagess = {
         diffPasword:"Contraseña diferente a la de confirmacion",
         onePassword:"Es necesario la contraseña y su confirm",
         notAutorished:"No autorizado",
+        purchaseNotFound:"Compra no encontrada",
+        errorServer:"Error en el servidor"
    
     }
 }

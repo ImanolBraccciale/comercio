@@ -1,4 +1,5 @@
 import { prisma } from "../../utils";
+import { mensagess } from "../../utils/messages";
 export const getUserPurchases = async (req, res) => {
     try {
       const { userId } = req.query;
@@ -6,9 +7,9 @@ export const getUserPurchases = async (req, res) => {
         where: { user_id: userId },
       });
   
-      return res.json(purchases);
+      return res.status(200).json(purchases);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: messages.serverError });
+      res.status(500).json({ message: mensagess.errors.errorServer });
     }
   };

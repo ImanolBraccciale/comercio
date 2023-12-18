@@ -9,11 +9,8 @@ export const postPurchase = async (req, res) => {
       where: { email: email },
     });
 
-    if (!userFind) {
-      return res.status(404).json({message: "not found"});
-    }
+    if (!userFind) return res.status(404).json({message: "not found"});
 
-    // Crear una nueva compra
     const purchase = await prisma.purchase.create({
       data: {
         user: { connect: { id: userFind.id } },
@@ -40,7 +37,6 @@ export const postPurchase = async (req, res) => {
       },
     });
 
-      
     return res.json(purchase);
   } catch (error) {
     console.error(error);

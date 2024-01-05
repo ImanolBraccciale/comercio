@@ -1,12 +1,16 @@
 -- CreateEnum
 CREATE TYPE "Role" AS ENUM ('CLIENT', 'SELLER', 'ADMIN');
 
+-- CreateEnum
+CREATE TYPE "Confirm" AS ENUM ('FALSE', 'TRUE');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
+    "isEmailConfirmed" "Confirm" NOT NULL DEFAULT 'FALSE',
     "role" "Role" NOT NULL DEFAULT 'CLIENT',
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")

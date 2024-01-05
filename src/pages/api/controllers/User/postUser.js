@@ -2,12 +2,16 @@ import { prisma } from "../../utils";
 import { mensagess } from "../../utils/messages";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import  {Resend}  from 'resend';
+
+const resend = new Resend(process.env.RESEND);
+
 
 export const postUser = async (req,res) =>{
     try {
         const data = req.body
         const { password,confirmPassword } = data;
-    
+
         const userFind = await prisma.user.findUnique({
           where: { email: data.email },
         });

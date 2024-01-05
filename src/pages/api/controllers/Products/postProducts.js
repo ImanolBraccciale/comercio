@@ -2,7 +2,6 @@ import { prisma } from "../../utils";
 import { mensagess } from "../../utils/messages";
 export const postProducts = async (data,res) => {
 try {
-  console.log(data);
   const newProduct = await prisma.product.create({
     data: data,
   });

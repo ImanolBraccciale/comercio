@@ -37,7 +37,16 @@ export const fetchProductsID = (id) => {
         }
     }
 };
-
+export const confirmEmail = (token) => {
+    return async function(dispatch){
+        try {
+            const response = await axios.post(`/api/handlers/Auth/ConfirmEmail`,{token})
+            console.log(response);
+        } catch (error) {
+           return  "error en el confirm"
+        }
+    }
+};
 export const postUser = (user) => {
     return async function(dispatch){
         try {

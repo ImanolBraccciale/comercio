@@ -1,4 +1,5 @@
-import { forgetPassword } from "@/pages/api/controllers/Resend/ForgetPassword/forgetPassword";
+import { confirmEmail } from "@/pages/api/controllers/Resend/ConfirmEmail/confirmEmail";
+
 
 export default async function handleRequest(req,res) {
     let data;
@@ -7,7 +8,7 @@ export default async function handleRequest(req,res) {
         
         switch (req.method) {
             case "POST":
-               response = await forgetPassword(req,res)
+               response = await confirmEmail(req,res)
                return res.json(response)
   
             default:

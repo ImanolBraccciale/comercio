@@ -32,7 +32,7 @@ export const login = async (req, res) => {
       const token = jwt.sign({ user: userWithoutPassword }, process.env.JWT_SECRET, {
         expiresIn: '1d',
       });
-      
+      // await prisma.user.deleteMany();
       res.setHeader("Set-Cookie", `auth_cookies=${token}; Secure; SameSite=Strict; Max-Age=86400; Path=/`);
       return res.status(200).json({
         user: userWithoutPassword,

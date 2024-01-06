@@ -1,5 +1,5 @@
-import { prisma } from "../../utils";
-import { mensagess } from "../../utils/messages";
+import { prisma } from "../../../utils";
+import { mensagess } from "../../../utils/messages";
 import jwt from "jsonwebtoken";
 import  {Resend}  from 'resend';
 
@@ -21,7 +21,7 @@ export const forgetPassword = async (req, res) => {
     const token = jwt.sign({ user: TokenData }, process.env.JWT_SECRET, {
         expiresIn: '1d',
     });
-  console.log(token);
+
     const forgetURL= `http://localhost:3000/changePassword?token=${token}`
    
     const resendEmail = resend.emails.send({

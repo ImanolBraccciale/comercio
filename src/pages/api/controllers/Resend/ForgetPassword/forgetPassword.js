@@ -22,8 +22,8 @@ export const forgetPassword = async (req, res) => {
         expiresIn: '1d',
     });
 
-    const forgetURL= `http://localhost:3000/changePassword?token=${token}`
-   
+    const forgetURL= `http://localhost:3000/ChangePassword?token=${token}`
+
     const resendEmail = resend.emails.send({
         from: 'onboarding@resend.dev',
         to: userFind.email,

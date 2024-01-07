@@ -1,8 +1,9 @@
 "use client"
 import React from "react";
 import FormGeneric from "../utils/GenericForm";
-import { useAppDispatch } from "../utils/hooks";
 import { postUser } from "../redux/actions";
+import Link from "next/link";
+import { useAppDispatch } from "../utils/hooks";
 
 const ProductForm = ({ onSubmit }) => {
     const initialState = {
@@ -39,6 +40,9 @@ const ProductForm = ({ onSubmit }) => {
                 initialState={initialState}
                 onSubmit={handleFormSubmit}
             />
+            <Link href={"/ForgetForm"}>
+            <p >Cambiar contraseña</p>
+            </Link>
         </div>
     );
 };

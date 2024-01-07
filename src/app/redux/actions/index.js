@@ -47,6 +47,36 @@ export const confirmEmail = (token) => {
         }
     }
 };
+export const forgetPassword = (newUser) => {
+    return async function (dispatch) {
+        try {
+            const response = await axios.post("/api/handlers/Auth/ForgetPassword",newUser)
+        
+        } catch (error) {
+            throw new Error('Failed to search forgetPassword in client');
+        }
+    }
+}
+
+export const changePassword = (newUser, token) => {
+    return async function (dispatch) {
+      try {
+            console.log(newUser, token);
+        const response = await axios.post(
+          "/api/handlers/Auth/ChangePassword",
+          newUser,
+          {
+            headers: {
+              Authorization: ` ${token}`,
+            },
+          }
+        );
+
+      } catch (error) {
+        throw new Error("Failed to change password in client");
+      }
+    };
+  };
 export const postUser = (user) => {
     return async function(dispatch){
         try {
